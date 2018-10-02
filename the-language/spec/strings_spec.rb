@@ -147,7 +147,7 @@ END
     string = "Strings Are Fun"
     words = string.split
 
-    expect( words ).to eq( "Strings", "Are", "Fun"] )
+    expect( words ).to eq( "Strings", "Are", "Fun" )
   end
 
   it "can split a string on other characters" do
