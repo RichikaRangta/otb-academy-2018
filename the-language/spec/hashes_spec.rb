@@ -3,7 +3,7 @@ RSpec.describe "Ruby's Hash structure" do
     empty_hash = Hash.new
 
     expect( empty_hash.class ).to eq(Hash)
-    expect( empty_hash.size ).to eq(0)  
+    expect( empty_hash.size ).to eq(0)
   end
 
   it "can be created using the hash literal syntax" do
