@@ -24,9 +24,6 @@ def triangle(a, b, c)
     raise TriangleError	
   end
   	
-
-
-
   if a == b && b== c 
   	return :equilateral
   elsif a == b || b == c || a ==c 
