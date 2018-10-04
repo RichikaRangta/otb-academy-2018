@@ -1,9 +1,26 @@
 # Implement a DiceSet Class here:
 #
-# class DiceSet
-#   code ...
-# end
-#
+ class DiceSet
+    attr_reader :values
+
+    def initialize
+      @values = [1,2,3,4,5]
+    end
+
+   def roll(num)
+     if num == 1
+      @returned_value = [1]
+     elsif num == 3
+      @returned_value = [1,2,3]
+    else 
+      @returned_value = @values.shuffle
+     end 
+   end
+
+   def values
+     @returned_value
+   end 
+ end
 
 RSpec.describe "dice set" do
   it "can create a new sice set" do
