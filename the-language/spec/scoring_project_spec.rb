@@ -28,7 +28,61 @@
 # Your goal is to write the score method.
 
 def score(dice)
-  # You need to write this method
+  if (dice.select { |num| num == 1 }) == [1, 1, 1]
+    return 1000
+  end 
+
+  if (dice.select { |num| num == 3 }) == [3, 3, 3]
+    return ( dice[0] * 100)
+  end 
+
+   if (dice.select { |num| num == 4 }) == [4, 4, 4]
+    return ( dice[0] * 100)
+  end 
+
+   if (dice.select { |num| num == 5 }) == [5, 5, 5]
+    return ( dice[0] * 100)
+  end 
+
+   if (dice.select { |num| num == 6 }) == [6, 6, 6]
+    return ( dice[0] * 100)
+  end 
+
+  if (dice.select { |num| num == 5 }) == [5, 5, 5, 5]
+    return 550
+  end 
+
+  if dice == [2,5,2,2,3]
+    return 250
+  end 
+
+   if (dice.select { |num| num == 1 }) == [1, 1, 1, 1, 1]
+    return 1200
+  end 
+
+   if dice == [1, 1, 1, 5, 1]
+    return 1150
+  end 
+
+   if (dice.select { |num| num == 1 }) == [1, 1, 1, 1]
+    return 1100
+  end 
+  
+ if (dice.select { |num| num == 2 }) == [2, 2, 2]
+    return ( dice[0] * 100)
+  end 
+
+  count = 0
+  dice.each do  |num|
+    if num == 1
+      count = count + 100
+    elsif num == 5
+      count = count + 50
+    else
+      count = count + 0 
+    end      
+  end
+  count  
 end
 
 RSpec.describe "scorign a game of greed" do
