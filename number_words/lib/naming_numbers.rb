@@ -9,5 +9,5 @@ def name_numbers( num )
   	5 => 'five',
 
   }  
-  return name[ 1 ]
- end
+  return name.fetch(num) 
+end
