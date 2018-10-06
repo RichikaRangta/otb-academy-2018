@@ -11,5 +11,7 @@ def name_numbers( num )
     return name_ones.fetch(num) 
   elsif (num % 10 == 0)
   	return name_tens[ (num / 10) ]
+  elsif ( num > 20 && num % 10 != 0)	
+  	return name_tens[ (num / 10) ]+ ' '+name_ones[ (num % 10 ) ]
   end
 end
