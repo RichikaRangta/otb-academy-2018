@@ -21,7 +21,15 @@ RSpec.describe "naming numbers" do
     expect( name_numbers 10 ).to eq("ten")
   end
 
-   it "name '30' as thirty" do
+  it "name '14' as fourteen" do
+    expect( name_numbers 14 ).to eq("fourteen")
+  end
+
+  it "name '18' as eighteen" do
+    expect( name_numbers 18 ).to eq("eighteen")
+  end
+
+  it "name '30' as thirty" do
     expect( name_numbers 30 ).to eq("thirty")
   end
 end  
