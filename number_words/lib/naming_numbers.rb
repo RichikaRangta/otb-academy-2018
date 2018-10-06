@@ -5,20 +5,11 @@ def name_numbers( num )
  	              eleven twelve thirteen fourteen fifteen sisteen seventeen
  	                eighteen nineteen} 
   
-  name_tens = {
-    20 => 'twenty',
-  	30 => 'thirty',
-  	40 => 'fourty',
-  	50 => 'fifty',
-  	60 => 'sixty',
-  	70 => 'seventy',
-  	80 => 'eighty',
-  	90 => 'ninety',
-  	 }
+  name_tens = %w{invalid invalid twenty thirty fourty fifty sixty seventy eighty ninety }
 
   if num < 20
     return name_ones.fetch(num) 
-  else
-    return name_tens.fetch(num) 
+  elsif (num % 10 == 0)
+  	return name_tens[ (num / 10) ]
   end
 end
