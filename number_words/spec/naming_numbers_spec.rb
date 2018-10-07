@@ -53,4 +53,12 @@ RSpec.describe "naming numbers" do
     expect( name_numbers 99 ).to eq("ninety nine")
   end
 
+
+  it "name '100' as one hundred one" do
+    expect( name_numbers 101 ).to eq("one hundred one")
+  end
+  it "name '142' as one hundred forty two" do
+    expect( name_numbers 142 ).to eq("one hundred fourty two")
+  end
+
 end  
