@@ -7,28 +7,84 @@ class Bottles
     start.downto(finish).map { |number| verse(number) }.join("\n")
   end
 
-  def verse(number)
-    case number
-    when 0
-      <<~VERSE
-        No more bottles of beer on the wall, no more bottles of beer.
-        Go to the store and buy some more, 99 bottles of beer on the wall.
-        VERSE
-    when 1
-      <<~VERSE
-        1 bottle of beer on the wall, 1 bottle of beer.
-        Take it down and pass it around, no more bottles of beer on the wall.
-        VERSE
-    when 2
-      <<~VERSE
-        2 bottles of beer on the wall, 2 bottles of beer.
-        Take one down and pass it around, 1 bottle of beer on the wall.
-        VERSE
-    else
-      <<~VERSE
-        #{number} bottles of beer on the wall, #{number} bottles of beer.
-        Take one down and pass it around, #{number - 1} bottles of beer on the wall.
-        VERSE
-    end
+ def verse(number)
+    bottle_number = BottleNumber.For(number)
+    next_bottle_number = bottle_number.successor
+    <<~VERSE
+      #{ bottle_number.to_s.capitalize } of beer on the wall, #{ bottle_number } of beer.
+      #{ bottle_number.action }, #{ next_bottle_number } of beer on the wall.
+      VERSE
   end
 end
+
+  class BottleNumber
+    attr_reader :number
+
+    def self.For(number)
+      if number.kind_of? BottleNumber
+        return number
+      end  	
+
+      if number == 0
+  	    BottleNumber0.new(number)
+  	  elsif number == 1  
+  	    BottleNumber1.new(number) 
+  	  else
+        BottleNumber.new(number)
+      end 	
+    end	
+
+    def initialize(number)
+      @number = number
+    end
+
+    def container
+      "bottles"
+    end
+
+    def pronoun
+      "one"
+    end
+
+    def quantity
+      number.to_s
+    end
+
+    def action
+      "Take #{ pronoun } down and pass it around"
+    end
+
+    def successor
+       BottleNumber.For(number - 1)
+    end
+    
+    def to_s
+      "#{quantity} #{container}"
+    end
+  end
+
+  class BottleNumber0 < BottleNumber
+  	def successor
+      BottleNumber.For(99)
+    end
+
+    def quantity
+      "no more"
+    end
+
+    def action
+      "Go to the store and buy some more"	
+    end
+   end
+
+  class BottleNumber1 < BottleNumber
+
+    def container
+   	  "bottle"
+    end
+
+    def pronoun
+   	  "it"
+    end	
+
+  end 	
