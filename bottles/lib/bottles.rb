@@ -15,6 +15,13 @@ class Bottles
       #{ bottle_number.action }, #{ next_bottle_number } of beer on the wall.
       VERSE
   end
+
+  def verse_pack(number)
+  <<~VERSE
+     #{number} bottles of beer on the wall, #{number} bottles of beer.
+     Take one down and pass it around, 1 six pack of beer on the wall.
+     VERSE
+  end
 end
 
   class BottleNumber
