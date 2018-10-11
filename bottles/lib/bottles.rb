@@ -8,11 +8,11 @@ class Bottles
   end
 
   def verse(number)
-    @bottle_number = BottleNumber.For(number)
-    @next_bottle_number = @bottle_number.successor
+    bottle_number = BottleNumber.For(number)
+    next_bottle_number = bottle_number.successor
     <<~VERSE
-      #{ @bottle_number.to_s.capitalize } of beer on the wall, #{ @bottle_number } of beer.
-      #{ @bottle_number.action }, #{ @next_bottle_number } of beer on the wall.
+      #{ bottle_number.to_s.capitalize } of beer on the wall, #{ bottle_number } of beer.
+      #{ bottle_number.action }, #{ next_bottle_number } of beer on the wall.
       VERSE
   end
 
